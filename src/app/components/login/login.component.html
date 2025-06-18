@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="flex justify-center my-10">
+    <div class="card bg-base-300 w-96 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title justify-center">Login</h2>
+            <div>
+                <form [formGroup]="loginForm">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend input-md">E-mail</legend>
+                        <input type="text" class="input input-primary" placeholder="Enter your email"
+                            formControlName="emailId" />
+                        <legend class="fieldset-legend input-md">Password</legend>
+                        <input type="password" class="input input-primary" placeholder="Enter your password"
+                            formControlName="password" />
+                    </fieldset>
+                </form>
+            </div>
+            <div class="card-actions justify-center">
+                <button type="submit" class="btn btn-primary" (click)="onClick()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

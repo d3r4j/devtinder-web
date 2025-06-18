@@ -2,8 +2,9 @@
     <div class="flex-1">
         <a class="btn btn-ghost text-xl">DevTinder</a>
     </div>
-    <div class="flex gap-2">
-        <div class="dropdown dropdown-end mx-4">
+    <div class="flex gap-2" *ngIf="logged_in_user">
+        <div class="dropdown dropdown-end mx-4 flex item-center">
+            <p class="px-4">Welcome, {{logged_in_user.firstName}} </p>
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                 <div class="w-10 rounded-full">
                     <img alt="Tailwind CSS Navbar component"
@@ -18,7 +19,7 @@
                     </a>
                 </li>
                 <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
+                <li><a (click)="logout()">Logout</a></li>
             </ul>
         </div>
     </div>
