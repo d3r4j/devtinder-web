@@ -13,11 +13,11 @@ export class AuthUserService {
       if (storedUser) {
         const parsed = JSON.parse(storedUser)
         this.userSubject.next(parsed)
-        console.log("local storage data parsing", parsed);
+        // console.log("local storage data parsing", parsed);
       }
     }
     catch (err) {
-      console.log("error parsing data from localstorage", err)
+      // console.log("error parsing data from localstorage", err)
       localStorage.removeItem('login_token');
     }
   }
@@ -45,7 +45,7 @@ export class AuthUserService {
   isLoggedIn(): boolean {
 
     let res = this.userSubject.value;
-    console.log("is logged in status", res)
+    // console.log("is logged in status", res)
     return res;
   }
 

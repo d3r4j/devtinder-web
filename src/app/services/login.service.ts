@@ -12,7 +12,7 @@ export class LoginService {
   BASE_URL = 'http://localhost:7777'
 
   login(emailId: string, password: string): Observable<any> {
-    console.log("post api called ")
+    // console.log("post api called ")
     return this.http.post<any>(this.BASE_URL + "/login", { emailId: emailId, password: password }, { withCredentials: true });
   }
 
@@ -20,6 +20,10 @@ export class LoginService {
   fetchUser(): Observable<any> {
     return this.http.get<any>(this.BASE_URL + '/profile/view', { withCredentials: true })
 
+  }
+
+  logout() {
+    return this.http.post(this.BASE_URL + '/logout', {}, { withCredentials: true, responseType: 'text' as 'json' },)
   }
 
 }

@@ -26,21 +26,22 @@ export class LoginComponent {
     password: this.password
   })
 
-
+  loginError: string = ''
   onClick() {
     if (this.loginForm.valid) {
-      console.log("form is valid")
+      // console.log("form is valid")
       const emailId = this.emailId.value
       const password = this.password.value
       this.service.login(emailId!, password!).subscribe({
         next: (res) => {
           this.loggedInUser = res;
           this.authUser.setUser(this.loggedInUser);
-          console.log("loggedin user res", this.loggedInUser);
+          // console.log("loggedin user res", this.loggedInUser);
           this.router.navigate(['/'])
         },
         error: (err) => {
-          console.log("login incorrect user details" + JSON.stringify(err, null, 2))
+          this.loginError = JSON.stringify(err.error, null, 2);
+          // console.log("login incorrect user details" + JSON.stringify(err, null, 2))
         }
       })
     }
