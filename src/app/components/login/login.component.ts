@@ -35,7 +35,7 @@ export class LoginComponent {
       this.service.login(emailId!, password!).subscribe({
         next: (res) => {
           this.loggedInUser = res;
-          this.authUser.setUser(res);
+          this.authUser.setUser(this.loggedInUser);
           console.log("loggedin user res", this.loggedInUser);
           this.router.navigate(['/'])
         },
@@ -45,7 +45,7 @@ export class LoginComponent {
       })
     }
     else {
-      alert("enter valid email and password to login")
+      alert("enter valid email and password to login");
     }
   }
 

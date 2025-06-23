@@ -15,4 +15,11 @@ export class LoginService {
     console.log("post api called ")
     return this.http.post<any>(this.BASE_URL + "/login", { emailId: emailId, password: password }, { withCredentials: true });
   }
+
+
+  fetchUser(): Observable<any> {
+    return this.http.get<any>(this.BASE_URL + '/profile/view', { withCredentials: true })
+
+  }
+
 }

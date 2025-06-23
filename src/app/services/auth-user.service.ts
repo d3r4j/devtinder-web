@@ -42,5 +42,11 @@ export class AuthUserService {
   }
 
 
+  isLoggedIn(): boolean {
+
+    let res = this.userSubject.value;
+    console.log("is logged in status", res)
+    return res;
+  }
 
 }

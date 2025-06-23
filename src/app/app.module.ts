@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedComponent } from './components/feed/feed.component';
+import { RootRedirectComponent } from './components/root-redirect/root-redirect.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FeedComponent } from './components/feed/feed.component';
     ProfileComponent,
     BodyComponent,
     FooterComponent,
-    FeedComponent
+    FeedComponent,
+    RootRedirectComponent
   ],
   imports: [
     BrowserModule,
