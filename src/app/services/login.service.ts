@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,9 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   BASE_URL = 'http://localhost:7777'
+  private cacheFeed: any = null;
+
+
 
   login(emailId: string, password: string): Observable<any> {
     // console.log("post api called ")
@@ -26,4 +29,23 @@ export class LoginService {
     return this.http.post(this.BASE_URL + '/logout', {}, { withCredentials: true, responseType: 'text' as 'json' },)
   }
 
-}
+
+  feed(): Observable<any> {
+    if (this.cacheFeed) {
+      return of(this.cacheFeed); // avoids refetching and recalling api again when clicked home
+    }
+    return this.http.get<any>(this.BASE_URL + '/feed', { withCredentials: true }).pipe(
+      tap(res => { this.cacheFeed = res })
+    )
+
+  }
+
+  userProfileEdit(updatedData: any): Observable<any> {
+    const { photoUrl, age, gender, about, skills, firstName, lastName } = updatedData;
+    // console.log("path api logs", updatedData)
+    return this.http.patch(this.BASE_URL + '/profile/edit',
+      { photoUrl, age, gender, about, skills, firstName, lastName },
+      { withCredentials: true })
+  }
+
+} 
