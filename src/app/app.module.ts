@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FeedComponent } from './components/feed/feed.component';
 import { RootRedirectComponent } from './components/root-redirect/root-redirect.component';
 import { ConnectionsComponent } from './components/connections/connections.component';
+import { UserRequestsComponent } from './components/user-requests/user-requests.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ConnectionsComponent } from './components/connections/connections.compo
     FooterComponent,
     FeedComponent,
     RootRedirectComponent,
-    ConnectionsComponent
+    ConnectionsComponent,
+    UserRequestsComponent
   ],
   imports: [
     BrowserModule,

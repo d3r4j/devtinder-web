@@ -7,6 +7,7 @@ import { RootRedirectComponent } from './components/root-redirect/root-redirect.
 import { authRouteGuard } from './auth/auth-route.guard';
 import { loginRouteGuard } from './auth/login-route.guard';
 import { ConnectionsComponent } from './components/connections/connections.component';
+import { UserRequestsComponent } from './components/user-requests/user-requests.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent, canActivate: [authRouteGuard] },
   { path: 'login', component: LoginComponent, canActivate: [loginRouteGuard] }, //reverse guard
   { path: 'profile', component: ProfileComponent, canActivate: [authRouteGuard] },
-  { path: 'connections', component: ConnectionsComponent, canActivate: [authRouteGuard] }
+  { path: 'connections', component: ConnectionsComponent, canActivate: [authRouteGuard] },
+  { path: 'requests', component: UserRequestsComponent, canActivate: [authRouteGuard] }
 
 ];
 

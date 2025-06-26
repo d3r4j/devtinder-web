@@ -1,0 +1,25 @@
+<div class=" text-center my-10 max-h-[70vh] overflow-auto">
+
+    <h1 class="font-bold text-2xl">Requests Recieved</h1>
+    <ng-container *ngIf="userReq">
+        <div *ngFor="let item of userReq">
+            <div class="m-4 p-4 bg-base-300 flex justify-between items-center w-2/3 mx-auto">
+                <div>
+                    <img [src]="item.fromUserId.photoUrl" class="rounded-full w-20 h-20" alt="photo">
+                </div>
+                <div class="mx-4 text-left">
+                    <h2 class="text-xl font-medium font-serif">{{item.fromUserId.firstName}}
+                        {{item.fromUserId.lastName}}
+                    </h2>
+                    <p *ngIf="item.fromUserId.age || item.fromUserId.gender"> {{item.fromUserId.age}} ,
+                        {{item.fromUserId.gender}} </p>
+                    <p class="font-light text-sm">{{item.fromUserId.about}} </p>
+                </div>
+                <div class="">
+                    <button class="btn btn-soft btn-primary mx-2">Reject</button>
+                    <button class="btn btn-soft btn-secondary mx-2">Accept</button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
