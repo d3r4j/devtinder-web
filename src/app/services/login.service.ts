@@ -48,4 +48,9 @@ export class LoginService {
       { withCredentials: true })
   }
 
+  //user connection api 
+  getConnections(): Observable<any> {
+    return this.http.get<any>(this.BASE_URL + '/user/connections', { withCredentials: true })
+  }
+
 } 

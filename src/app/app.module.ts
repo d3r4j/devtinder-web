@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FeedComponent } from './components/feed/feed.component';
 import { RootRedirectComponent } from './components/root-redirect/root-redirect.component';
+import { ConnectionsComponent } from './components/connections/connections.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RootRedirectComponent } from './components/root-redirect/root-redirect.
     BodyComponent,
     FooterComponent,
     FeedComponent,
-    RootRedirectComponent
+    RootRedirectComponent,
+    ConnectionsComponent
   ],
   imports: [
     BrowserModule,
