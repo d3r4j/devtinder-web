@@ -58,5 +58,12 @@ export class LoginService {
     return this.http.get<any>(this.BASE_URL + '/user/requests/received', { withCredentials: true })
   }
 
+  userRequestReceived(): Observable<any> {
+    return this.http.get<any>(this.BASE_URL + '/user/requests/received', { withCredentials: true })
+  }
 
-} 
+  userRequestStatus(status: string, _id: any): Observable<any> {
+    return this.http.post<any>(this.BASE_URL + '/request/review/' + status + '/' + _id, {}, { withCredentials: true })
+  }
+
+}   
