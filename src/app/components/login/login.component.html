@@ -1,6 +1,6 @@
-<div class="flex justify-center my-10">
+<div class="flex justify-center my-2">
     <div class="card bg-base-300 w-96 shadow-sm">
-        <div class="card-body">
+        <div class="card-body" *ngIf="formSwitch">
             <h2 class="card-title justify-center">Login</h2>
             <div>
                 <form [formGroup]="loginForm">
@@ -14,10 +14,43 @@
                     </fieldset>
                 </form>
             </div>
+            <p>
+                <a (click)="toogleForm()" class="cursor-pointer hover:underline">click here to signup</a>
+            </p>
             <p class="text-red-500"> {{loginError}} </p>
             <div class="card-actions justify-center">
                 <button type="submit" class="btn btn-primary" (click)="onClick()">Login</button>
             </div>
         </div>
+
+
+        <!-- signup -->
+
+        <div class="card-body" *ngIf="!formSwitch">
+            <h2 class="card-title justify-center">SignUp</h2>
+            <div>
+                <form [formGroup]="signUpFrom">
+                    <fieldset class="fieldset">
+                        <legend class="fieldset-legend input-md">First Name</legend>
+                        <input type="text" class="input input-primary" formControlName="firstName" />
+                        <legend class="fieldset-legend input-md">Last Name</legend>
+                        <input type="text" class="input input-primary" formControlName="lastName" />
+                        <legend class="fieldset-legend input-md">E-mail</legend>
+                        <input type="text" class="input input-primary" formControlName="emailId" />
+                        <legend class="fieldset-legend input-md">Password</legend>
+                        <input type="password" class="input input-primary" formControlName="password" />
+                    </fieldset>
+                </form>
+            </div>
+            <p class="text-red-500"> {{loginError}} </p>
+            <p> <a (click)="toogleForm()" class="cursor-pointer text-grey-500 hover:underline"> click here to login
+                </a> </p>
+            <div class="card-actions justify-center">
+
+                <button type="submit" class="btn btn-primary" (click)="onSignup()">SignUp</button>
+            </div>
+        </div>
     </div>
+
+
 </div>

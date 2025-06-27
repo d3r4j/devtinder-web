@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
     this.authUser.user$.subscribe({
       next: (res) => {
         this.logged_in_user = res;
+        console.log("logged user navbar name", this.logged_in_user)
 
       }
     })

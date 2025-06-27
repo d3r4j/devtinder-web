@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthUserService } from 'src/app/services/auth-user.service';
 import { LoginService } from 'src/app/services/login.service';
@@ -13,8 +13,9 @@ export class LoginComponent {
 
 
   loggedInUser = {};
+  formSwitch: boolean = true;
 
-  constructor(private service: LoginService, private router: Router, private authUser: AuthUserService) { }
+  constructor(private service: LoginService, private router: Router, private authUser: AuthUserService, private fb: FormBuilder) { }
 
 
 
@@ -27,6 +28,14 @@ export class LoginComponent {
   })
 
   loginError: string = ''
+
+  signUpFrom = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    emailId: ['', Validators.required],
+    password: ['', Validators.required]
+  })
+
   onClick() {
     if (this.loginForm.valid) {
       // console.log("form is valid")
@@ -51,6 +60,27 @@ export class LoginComponent {
     else {
       alert("enter valid email and password to login");
     }
+  }
+
+  toogleForm() {
+    this.formSwitch = !this.formSwitch
+  }
+
+  onSignup() {
+    if (this.signUpFrom.valid) {
+      this.service.signupUser(this.signUpFrom.value).subscribe({
+        next: (res) => {
+          console.log("new user added", res)
+          this.loggedInUser = res;
+          this.authUser.setUser(res.data);
+          this.router.navigate(['/profile'])
+        },
+        error: (err) => {
+          console.log("error signing up user", err);
+        }
+      })
+    }
+
   }
 
 }

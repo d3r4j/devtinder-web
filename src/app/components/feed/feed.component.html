@@ -1,21 +1,25 @@
-<div class=" flex justify-center my-10" *ngIf="user.length > 0 else temp">
-    <div class="card bg-base-300 w-96 shadow-xl" *ngFor="let card of user | slice:0:1">
+<div class=" flex justify-center my-10  sm:my-4 px-2 sm:px-0" *ngIf="user.length > 0 else temp">
+    <div class="shadow-xl w-60 sm:w-[19rem] max-h-[70vh] overflow-y-auto ">
 
-        <figure>
-            <img class="w-50 h-60 object-fill"
-                [src]="card.photoUrl || 'https://media.istockphoto.com/id/1341046662/vector/picture-profile-icon-human-or-people-sign-and-symbol-for-template-design.jpg?s=612x612&w=0&k=20&c=A7z3OK0fElK3tFntKObma-3a7PyO8_2xxW0jtmjzT78='"
-                alt="user image" />
-        </figure>
-        <div class="card-body">
-            <h2 class="card-title"> {{ card.firstName }} {{ card.lastName }}</h2>
-            <p *ngIf="card.age && card.gender"> {{card.age + " " + card.gender}} </p>
-            <p> {{card.about}} </p>
-            <div class="card-actions justify-center my-4">
-                <button class="btn btn-primary" (click)="onIgnored(card._id)">Ignore</button>
-                <button class="btn btn-secondary" (click)="onInterested(card._id)">Interested</button>
+
+        <div class="card bg-base-300" *ngFor="let card of user | slice:0:1">
+
+            <figure>
+                <img class="w-50 h-60 object-fill"
+                    [src]="card.photoUrl || 'https://media.istockphoto.com/id/1341046662/vector/picture-profile-icon-human-or-people-sign-and-symbol-for-template-design.jpg?s=612x612&w=0&k=20&c=A7z3OK0fElK3tFntKObma-3a7PyO8_2xxW0jtmjzT78='"
+                    alt="user image" />
+            </figure>
+            <div class="card-body">
+                <h2 class="card-title"> {{ card.firstName }} {{ card.lastName }}</h2>
+                <p *ngIf="card.age && card.gender"> {{card.age + " " + card.gender}} </p>
+                <p> {{card.about}} </p>
+                <div class="card-actions justify-center my-4">
+                    <button class="btn btn-primary" (click)="onIgnored(card._id)">Ignore</button>
+                    <button class="btn btn-secondary" (click)="onInterested(card._id)">Interested</button>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
 
