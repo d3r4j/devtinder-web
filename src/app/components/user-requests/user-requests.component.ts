@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -11,8 +10,8 @@ export class UserRequestsComponent implements OnInit {
   constructor(private service: LoginService) { }
 
   userReq: any;
-
   loggedInUser: any;
+
   ngOnInit(): void {
     this.service.getRequests().subscribe({
       next: (res) => {

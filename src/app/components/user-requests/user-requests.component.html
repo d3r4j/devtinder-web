@@ -15,9 +15,9 @@
                         {{item.fromUserId.gender}} </p>
                     <p class="font-light text-sm">{{item.fromUserId.about}} </p>
                 </div>
-                <div class="" *ngFor="let user of loggedInUser">
-                    <button class="btn btn-soft btn-primary mx-2" (click)="onReject(user._id)">Reject</button>
-                    <button class="btn btn-soft btn-secondary mx-2" (click)="onAccept(user._id)">Accept</button>
+                <div>
+                    <button class="btn btn-soft btn-primary mx-2" (click)="onReject(item._id)">Reject</button>
+                    <button class="btn btn-soft btn-secondary mx-2" (click)="onAccept(item._id)">Accept</button>
                 </div>
             </div>
         </div>

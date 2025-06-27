@@ -37,6 +37,9 @@ export class LoginComponent {
           this.loggedInUser = res;
           this.authUser.setUser(this.loggedInUser);
           // console.log("loggedin user res", this.loggedInUser);
+
+          this.service.clearFeedCache()
+          this.service.feed()
           this.router.navigate(['/'])
         },
         error: (err) => {

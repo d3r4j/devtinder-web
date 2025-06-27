@@ -39,6 +39,11 @@ export class LoginService {
     )
 
   }
+  clearFeedCache() {
+    this.cacheFeed = null
+  }
+
+
 
   userProfileEdit(updatedData: any): Observable<any> {
     const { photoUrl, age, gender, about, skills, firstName, lastName } = updatedData;
@@ -64,6 +69,11 @@ export class LoginService {
 
   userRequestStatus(status: string, _id: any): Observable<any> {
     return this.http.post<any>(this.BASE_URL + '/request/review/' + status + '/' + _id, {}, { withCredentials: true })
+  }
+
+  // feed api to send or ignore user profiles 
+  sendConnectionRequest(action: string, _id: any): Observable<any> {
+    return this.http.post(this.BASE_URL + '/request/send/' + action + '/' + _id, {}, { withCredentials: true })
   }
 
 }   
