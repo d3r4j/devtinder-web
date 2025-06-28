@@ -19,8 +19,8 @@ export class LoginComponent {
 
 
 
-  emailId = new FormControl('dhiraj@gmail.com', [Validators.required]);
-  password = new FormControl('Dhiraj@12345', Validators.required);
+  emailId = new FormControl('', [Validators.required]);
+  password = new FormControl('', Validators.required);
 
   loginForm = new FormGroup({
     emailId: this.emailId,
