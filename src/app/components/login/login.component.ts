@@ -70,7 +70,7 @@ export class LoginComponent {
     if (this.signUpFrom.valid) {
       this.service.signupUser(this.signUpFrom.value).subscribe({
         next: (res) => {
-          console.log("new user added", res)
+          // console.log("new user added", res)
           this.loggedInUser = res;
           this.authUser.setUser(res.data);
           this.router.navigate(['/profile'])

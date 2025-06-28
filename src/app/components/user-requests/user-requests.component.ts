@@ -16,7 +16,7 @@ export class UserRequestsComponent implements OnInit {
     this.service.getRequests().subscribe({
       next: (res) => {
         this.userReq = res.data
-        console.log(this.userReq)
+        // console.log(this.userReq)
       },
       error: (err) => {
         alert("error fetching user requests" + err);
@@ -26,7 +26,7 @@ export class UserRequestsComponent implements OnInit {
     this.service.userRequestReceived().subscribe({
       next: (res) => {
         this.loggedInUser = res.data;
-        console.log('user req received', this.loggedInUser)
+        // console.log('user req received', this.loggedInUser)
       }
     })
 
@@ -36,7 +36,7 @@ export class UserRequestsComponent implements OnInit {
     console.log(event)
     this.service.userRequestStatus('accepted', event).subscribe({
       next: (res) => {
-        console.log(" request accepted", res)
+        // console.log(" request accepted", res)
         this.refreshReqPage()
 
       },
@@ -47,10 +47,10 @@ export class UserRequestsComponent implements OnInit {
   }
 
   onReject(event: any) {
-    console.log('on reject', event)
+    // console.log('on reject', event)
     this.service.userRequestStatus('rejected', event).subscribe({
       next: (res) => {
-        console.log('user rejected', res)
+        // console.log('user rejected', res)
         this.refreshReqPage()
 
       },
@@ -67,7 +67,7 @@ export class UserRequestsComponent implements OnInit {
     this.service.getRequests().subscribe({
       next: (res) => {
         this.userReq = res.data;
-        console.log(' page refreshed', this.userReq)
+        // console.log(' page refreshed', this.userReq)
       },
       error: (err) => {
 

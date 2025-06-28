@@ -16,7 +16,7 @@ export class FeedComponent implements OnInit {
     this.service.feed().subscribe({
       next: (res) => {
         this.user = res;
-        console.log(this.user)
+        // console.log(this.user)
       },
       error: (err) => {
         console.log(err);
@@ -28,7 +28,7 @@ export class FeedComponent implements OnInit {
     // console.log(event);
     this.service.sendConnectionRequest('interested', event).subscribe({
       next: (res) => {
-        console.log("interested button clicked", res);
+        // console.log("interested button clicked", res);
         this.service.clearFeedCache()
         this.refreshFeed()
 
@@ -44,7 +44,7 @@ export class FeedComponent implements OnInit {
     this.service.sendConnectionRequest('ignored', event).subscribe({
 
       next: (res) => {
-        console.log("user ignored button working", res)
+        // console.log("user ignored button working", res)
         this.service.clearFeedCache();
         this.refreshFeed()
 
@@ -59,7 +59,7 @@ export class FeedComponent implements OnInit {
     this.service.feed().subscribe({
       next: (res) => {
         this.user = res;
-        console.log("refresh feed called ", this.user)
+        // console.log("refresh feed called ", this.user)
 
       },
       error: (err) => {

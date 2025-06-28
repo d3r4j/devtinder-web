@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
     this.service.fetchUser().subscribe({
       next: (res) => {
         this.userData = res
-        console.log(this.userData)
+        // console.log(this.userData)
       },
       error: (err) => {
         alert("error fetching user profile" + err)
