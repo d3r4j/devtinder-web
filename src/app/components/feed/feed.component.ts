@@ -25,10 +25,10 @@ export class FeedComponent implements OnInit {
   }
 
   onInterested(event: any) {
-    // console.log(event);
+    console.log(event);
     this.service.sendConnectionRequest('interested', event).subscribe({
       next: (res) => {
-        // console.log("interested button clicked", res);
+        console.log("interested button clicked", res);
         this.service.clearFeedCache()
         this.refreshFeed()
 
@@ -44,7 +44,7 @@ export class FeedComponent implements OnInit {
     this.service.sendConnectionRequest('ignored', event).subscribe({
 
       next: (res) => {
-        // console.log("user ignored button working", res)
+        console.log("user ignored button working", res)
         this.service.clearFeedCache();
         this.refreshFeed()
 

@@ -9,7 +9,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  BASE_URL = '/api'
+  // BASE_URL = '/api'
+  BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:7777' : '/api';
   private cacheFeed: any = null;
 
 
