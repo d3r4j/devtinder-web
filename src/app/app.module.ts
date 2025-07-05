@@ -14,6 +14,7 @@ import { FeedComponent } from './components/feed/feed.component';
 import { RootRedirectComponent } from './components/root-redirect/root-redirect.component';
 import { ConnectionsComponent } from './components/connections/connections.component';
 import { UserRequestsComponent } from './components/user-requests/user-requests.component';
+import { PremiumComponent } from './components/premium/premium.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserRequestsComponent } from './components/user-requests/user-requests.
     FeedComponent,
     RootRedirectComponent,
     ConnectionsComponent,
-    UserRequestsComponent
+    UserRequestsComponent,
+    PremiumComponent
   ],
   imports: [
     BrowserModule,

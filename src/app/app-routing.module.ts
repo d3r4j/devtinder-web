@@ -8,6 +8,7 @@ import { authRouteGuard } from './auth/auth-route.guard';
 import { loginRouteGuard } from './auth/login-route.guard';
 import { ConnectionsComponent } from './components/connections/connections.component';
 import { UserRequestsComponent } from './components/user-requests/user-requests.component';
+import { PremiumComponent } from './components/premium/premium.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [loginRouteGuard] }, //reverse guard
   { path: 'profile', component: ProfileComponent, canActivate: [authRouteGuard] },
   { path: 'connections', component: ConnectionsComponent, canActivate: [authRouteGuard] },
-  { path: 'requests', component: UserRequestsComponent, canActivate: [authRouteGuard] }
+  { path: 'requests', component: UserRequestsComponent, canActivate: [authRouteGuard] },
+  { path: 'premium', component: PremiumComponent, canActivate: [authRouteGuard] }
 
 ];
 

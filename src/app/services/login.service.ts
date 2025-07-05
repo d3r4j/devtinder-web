@@ -82,4 +82,11 @@ export class LoginService {
     return this.http.post<any>(this.BASE_URL + "/signup", user, { withCredentials: true })
   }
 
+  // payment api for creating order
+
+  createOrder(type: string): Observable<any> {
+    return this.http.post(this.BASE_URL + '/payment/create', { membershipType: type }, { withCredentials: true })
+  }
+
+
 }   
