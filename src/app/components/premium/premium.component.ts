@@ -11,10 +11,25 @@ export class PremiumComponent implements OnInit {
   constructor(private service: LoginService) { }
 
   order: any = {}
+  premiumUserData: any;
+  setUserPremium: boolean = false;
+
   ngOnInit(): void {
-
+    this.verifyPremiumUser()
   }
-
+  verifyPremiumUser() {
+    this.service.premiumVerify().subscribe({
+      next: (res) => {
+        this.premiumUserData = res
+        if (this.premiumUserData.isPremium == true) {
+          this.setUserPremium = true;
+        }
+      },
+      error: (err) => {
+        console.log("user premium verify failed", err)
+      }
+    })
+  }
   onClickBuy(data: string) {
     this.service.createOrder(data).subscribe({
       next: (res) => {
@@ -41,6 +56,7 @@ export class PremiumComponent implements OnInit {
           theme: {
             color: '#F37254'
           },
+          handler: this.verifyPremiumUser.bind(this),
         };
 
 

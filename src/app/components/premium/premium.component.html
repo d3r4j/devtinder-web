@@ -1,4 +1,4 @@
-<div class="flex w-full flex-col lg:flex-row mt-20 ">
+<div class="flex w-full flex-col lg:flex-row mt-20 " *ngIf="!premiumUserData else paidUser">
     <div class="card bg-base-300 rounded-box grid h-60 grow place-items-center">
         <h1 class="font-bold text-3xl">Gold Membership</h1>
         <ul>
@@ -21,3 +21,6 @@
         <button class="btn btn-primary" (click)="onClickBuy('platinum')">Buy Platinum Membership</button>
     </div>
 </div>
+<ng-template #paidUser>
+    <div>you are already a premium user with {{premiumUserData.notes.membershipType}} membership! </div>
+</ng-template>

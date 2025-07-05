@@ -85,8 +85,12 @@ export class LoginService {
   // payment api for creating order
 
   createOrder(type: string): Observable<any> {
-    return this.http.post(this.BASE_URL + '/payment/create', { membershipType: type }, { withCredentials: true })
+    return this.http.post<any>(this.BASE_URL + '/payment/create', { membershipType: type }, { withCredentials: true })
   }
 
+  // verify premium users
+  premiumVerify(): Observable<any> {
+    return this.http.get<any>(this.BASE_URL + "/premium/verify", { withCredentials: true })
+  }
 
 }   
