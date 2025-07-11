@@ -11,6 +11,8 @@ export class LoginService {
 
   // BASE_URL = '/api'
   BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:7777' : '/api';
+
+
   private cacheFeed: any = null;
 
 
@@ -91,6 +93,13 @@ export class LoginService {
   // verify premium users
   premiumVerify(): Observable<any> {
     return this.http.get<any>(this.BASE_URL + "/premium/verify", { withCredentials: true })
+  }
+
+
+  // fetch chat
+  fetchChat(targetUserId: string): Observable<any> {
+    return this.http.get(this.BASE_URL + '/chat/' + targetUserId, { withCredentials: true })
+
   }
 
 }   

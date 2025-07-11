@@ -15,7 +15,7 @@ export class ConnectionsComponent implements OnInit {
     this.service.getConnections().subscribe({
       next: (res) => {
         this.connectionData = res.data;
-        console.log(this.connectionData);
+        // console.log("connection ids", this.connectionData);
       },
       error: (err) => {
         alert("error getting user connections" + err);

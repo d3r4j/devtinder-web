@@ -9,6 +9,7 @@ import { loginRouteGuard } from './auth/login-route.guard';
 import { ConnectionsComponent } from './components/connections/connections.component';
 import { UserRequestsComponent } from './components/user-requests/user-requests.component';
 import { PremiumComponent } from './components/premium/premium.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [authRouteGuard] },
   { path: 'connections', component: ConnectionsComponent, canActivate: [authRouteGuard] },
   { path: 'requests', component: UserRequestsComponent, canActivate: [authRouteGuard] },
-  { path: 'premium', component: PremiumComponent, canActivate: [authRouteGuard] }
+  { path: 'premium', component: PremiumComponent, canActivate: [authRouteGuard] },
+  { path: 'chat/:targetUserId', component: ChatComponent, canActivate: [authRouteGuard] }
 
 ];
 

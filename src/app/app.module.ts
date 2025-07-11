@@ -15,6 +15,7 @@ import { RootRedirectComponent } from './components/root-redirect/root-redirect.
 import { ConnectionsComponent } from './components/connections/connections.component';
 import { UserRequestsComponent } from './components/user-requests/user-requests.component';
 import { PremiumComponent } from './components/premium/premium.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PremiumComponent } from './components/premium/premium.component';
     RootRedirectComponent,
     ConnectionsComponent,
     UserRequestsComponent,
-    PremiumComponent
+    PremiumComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

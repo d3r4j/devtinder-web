@@ -22,9 +22,10 @@
     </div>
 </div>
 <ng-template #paidUser>
-    <div>you are already a premium user with membership! </div>
-</ng-template><ng-template #paidUser>
-    <div *ngIf="premiumUserData?.membershipType as membership">
-        You are already a premium user with {{ membership | titlecase }} membership!
+    <div *ngIf="premiumUserData?.membershipType" class="text-center py-10">
+        You are already a premium user with <p class="text-warning font-semibold text-xl">
+
+            {{ premiumUserData.membershipType | uppercase}} membership!
+        </p>
     </div>
 </ng-template>

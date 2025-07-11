@@ -21,6 +21,7 @@ export class PremiumComponent implements OnInit {
     this.service.premiumVerify().subscribe({
       next: (res) => {
         this.premiumUserData = res
+        console.log(this.premiumUserData)
         if (this.premiumUserData.isPremium == true) {
           this.setUserPremium = true;
         }
