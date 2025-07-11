@@ -25,9 +25,9 @@ export class ChatComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.loggedInUserData = res;
         this.userId = res._id
-        console.log("logged user data", this.loggedInUserData)
-        console.log("logged in user id", this.userId);
-        console.log("target user id", this.targetUserId);
+        // console.log("logged user data", this.loggedInUserData)
+        // console.log("logged in user id", this.userId);
+        // console.log("target user id", this.targetUserId);
 
         // emit join chat
         this.socketservice.joinChat(this.loggedInUserData.firstName, this.userId, this.targetUserId);
@@ -45,8 +45,8 @@ export class ChatComponent implements OnInit, OnDestroy {
               text: msg.text
             }))
 
-            console.log("chat fetch res", res)
-            console.log("mssgr=es", this.messages)
+            // console.log("chat fetch res", res)
+            // console.log("mssgr=es", this.messages)
           }
         })
       },
